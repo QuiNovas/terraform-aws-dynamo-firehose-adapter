@@ -1,7 +1,7 @@
 variable "batch_size" {
   default     = 100
   description = "The largest number of records that Lambda will retrieve from the DynamoDB stream at then time of invocation"
-  type        = string
+  type        = number
 }
 
 variable "dead_letter_arn" {
