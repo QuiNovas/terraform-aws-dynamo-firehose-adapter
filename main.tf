@@ -16,11 +16,10 @@ module "dynamo_firehose_adapter" {
   policy_arns = [
     aws_iam_policy.dynamo_firehose_adapter.arn,
   ]
-  policy_arns_count = 1
   runtime           = "python2.7"
   source            = "QuiNovas/lambdalambdalambda/aws"
   timeout           = 60
-  version           = "3.0.0"
+  version           = "3.0.1"
 }
 
 resource "aws_lambda_event_source_mapping" "dynamo_firehose_adapter" {
