@@ -9,6 +9,12 @@ variable "dead_letter_arn" {
   type        = string
 }
 
+variable "description" {
+  description = "Description of the dynamo firehose adapter ."
+  type        = string
+  default     = ""
+}
+
 variable "dynamodb_image_type" {
   description = "Can either be NewImage or OldImage. This corresponds to the records in the DynamoDB Stream"
   type        = string
@@ -40,3 +46,8 @@ variable "name_prefix" {
   type        = string
 }
 
+variable "tags" {
+  default     = {}
+  description = "The map of string of keys and values"
+  type        = map
+}
