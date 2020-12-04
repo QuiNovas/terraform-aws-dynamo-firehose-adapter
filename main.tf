@@ -7,14 +7,17 @@ resource "aws_iam_policy" "dynamo_firehose_adapter" {
 module "dynamo_firehose_adapter" {
   dead_letter_arn = var.dead_letter_arn
   description     = var.description
+
   environment_variables = {
     DELIVERY_STREAM_NAME = var.kinesis_firehose_name
     DYNAMNODB_IMAGE_TYPE = var.dynamodb_image_type
   }
+
   handler       = "function.handler"
   kms_key_arn   = var.kms_key_arn
   l3_object_key = "quinovas/dynamo-firehose-adapter/dynamo-firehose-adapter-0.0.1.zip"
   name          = "${var.name_prefix}dynamo-firehose-adapter"
+
   policy_arns = [
     aws_iam_policy.dynamo_firehose_adapter.arn,
   ]
@@ -22,8 +25,11 @@ module "dynamo_firehose_adapter" {
   runtime = "python2.7"
   source  = "QuiNovas/lambdalambdalambda/aws"
   tags    = var.tags
-  timeout = 60
-  version = "3.0.3"
+
+  memory_size = var.memory_size
+  timeout     = var.timeout
+
+  version = "3.0.4"
 
 }
 
