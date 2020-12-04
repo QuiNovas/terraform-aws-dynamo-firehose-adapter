@@ -51,3 +51,16 @@ variable "tags" {
   description = "The map of string of keys and values"
   type        = map
 }
+
+variable "memory_size" {
+  default     = 128
+  description = "The memory allocation for the function"
+  type        = number
+}
+
+
+variable "timeout" {
+  default     = 60
+  description = "The timeout to apply to the function"
+  type        = number
+}
