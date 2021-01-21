@@ -29,7 +29,7 @@ module "dynamo_firehose_adapter" {
   memory_size = var.memory_size
   timeout     = var.timeout
 
-  version = "3.0.4"
+  version = "3.0.5"
 
 }
 
