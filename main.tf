@@ -15,21 +15,21 @@ module "dynamo_firehose_adapter" {
 
   handler       = "function.handler"
   kms_key_arn   = var.kms_key_arn
-  l3_object_key = "quinovas/dynamo-firehose-adapter/dynamo-firehose-adapter-0.0.1.zip"
+  l3_object_key = "quinovas/dynamo-firehose-adapter/dynamo-firehose-adapter-1.0.0.zip"
   name          = "${var.name_prefix}dynamo-firehose-adapter"
 
   policy_arns = [
     aws_iam_policy.dynamo_firehose_adapter.arn,
   ]
 
-  runtime = "python2.7"
+  runtime = "python3.8"
   source  = "QuiNovas/lambdalambdalambda/aws"
   tags    = var.tags
 
   memory_size = var.memory_size
   timeout     = var.timeout
 
-  version = "3.0.4"
+  version = "3.0.5"
 
 }
 
