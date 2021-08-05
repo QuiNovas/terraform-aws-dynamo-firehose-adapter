@@ -8,6 +8,7 @@ data "aws_iam_policy_document" "dynamo_firehose_adapter" {
     ]
     resources = [
       var.dynamodb_stream_arn,
+      var.tags
     ]
     sid = "AllowReadingFromDynamoDBStream"
   }
@@ -18,6 +19,7 @@ data "aws_iam_policy_document" "dynamo_firehose_adapter" {
     ]
     resources = [
       var.kinesis_firehose_arn,
+      var.tags
     ]
     sid = "AllowWritingToFirehose"
   }
